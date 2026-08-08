@@ -29,7 +29,7 @@ const PLATFORMS = [
     text: "Verified Psychiatrist With Recommendations",
     logo: lybrateLogo,
     // TODO: replace with Dr. Archana Singh's exact Lybrate profile URL once available
-    url: "https://www.lybrate.com/patna/psychiatrist",
+    url: "https://www.google.com/maps/search/Manah+Institute+of+Psychiatry+%26+Behavioral+Science+Patna",
   },
   {
     text: "Well Rated on JustDial",

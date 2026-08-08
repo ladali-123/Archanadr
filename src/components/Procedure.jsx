@@ -124,7 +124,7 @@ export default function ApproachSection() {
               </div>
               <div>
                 <p className="font-['Inter'] text-[14px] font-extrabold text-[#16233B] leading-none">
-                  13+ Years
+                  5+ Years
                 </p>
                 <p className="font-['Inter'] text-[10.5px] text-[#5B6B84] mt-0.5">
                   Clinical Experience

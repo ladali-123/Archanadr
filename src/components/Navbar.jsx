@@ -1,27 +1,29 @@
 import { useState, useRef, useEffect } from "react";
 import { Menu, X, ChevronDown, Calendar } from "lucide-react";
 import logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
+import BookNow from "./Booknow";
 
 const menuItems = [
-  { label: "Home", href: "#home" },
-  { label: "About Us", href: "#about" },
+  { label: "Home", to: "/" },
+  { label: "About Us", to: "/about" },
   {
     label: "Services",
-    href: "#services",
+    to: "/service",
     dropdown: [
-      { label: "General Consultation", href: "#general" },
-      { label: "TMS Therapy", href: "#tms" },
-      { label: "Ketamine Therapy", href: "#ketamine" },
+      { label: "General Consultation", to: "/service/general-consultation" },
+      { label: "TMS Therapy", to: "/service/tms-therapy" },
+      { label: "Ketamine Therapy", to: "/service/ketamine-therapy" },
     ],
   },
-  { label: "Blog", href: "#blog" },
-  { label: "Contact Us", href: "#contact" },
+  { label: "Blog", to: "/blog" },
+  { label: "Contact Us", to: "/contact" },
 ];
-
 export default function NavBar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [desktopDropdown, setDesktopDropdown] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState(false);
+  const [bookingOpen, setBookingOpen] = useState(false);
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -38,7 +40,7 @@ export default function NavBar() {
     <header className="w-full bg-white shadow-sm relative z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between pl-2 lg:pl-0 pr-4 sm:pr-6 py-1 sm:py-1.5">
         {/* Logo + Name */}
-        <a href="#home" className="flex items-center gap-2 shrink-0">
+        <Link to="/" className="flex items-center gap-2 shrink-0">
           <img src={logo} alt="Dr Archana Kri Logo" className="h-16 w-16 sm:h-20 sm:w-20 object-contain" />
           <div className="leading-tight">
             <p className="text-base md:text-lg font-bold text-[#0b6aa8] tracking-tight">
@@ -48,7 +50,7 @@ export default function NavBar() {
               MBBS, PSYCHIATRIST
             </p>
           </div>
-        </a>
+        </Link>
 
         {/* Desktop menu */}
         <nav className="hidden lg:flex items-center gap-8">
@@ -78,37 +80,38 @@ export default function NavBar() {
                   }`}
                 >
                   {item.dropdown.map((sub) => (
-                    <a
+                    <Link
                       key={sub.label}
-                      href={sub.href}
+                      to={sub.to}
+                      onClick={() => setDesktopDropdown(false)}
                       className="block px-4 py-2.5 text-sm text-[#0b6aa8] hover:bg-[#0b6aa8]/5 hover:underline transition-colors"
                     >
                       {sub.label}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
             ) : (
-              <a
+              <Link
                 key={item.label}
-                href={item.href}
+                to={item.to}
                 className="group relative text-lg font-semibold text-[#0b6aa8] transition-colors"
               >
                 {item.label}
                 <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-[#0b6aa8] transition-all duration-200 group-hover:w-full" />
-              </a>
+              </Link>
             )
           )}
         </nav>
 
         {/* Book Now - desktop */}
-        <a
-          href="#book"
+        <button
+          onClick={() => setBookingOpen(true)}
           className="hidden lg:flex items-center gap-2.5 bg-gradient-to-r from-[#0b6aa8] via-[#0f8ac9] to-[#14a4d9] text-white text-base font-bold pl-5 pr-7 py-3.5 rounded-full shadow-lg shadow-[#0b6aa8]/30 hover:shadow-xl hover:shadow-[#0b6aa8]/40 hover:scale-[1.05] active:scale-[0.97] transition-all duration-200 ring-2 ring-white/40"
         >
           <Calendar className="w-5 h-5 shrink-0" />
           Book Now
-        </a>
+        </button>
 
         {/* Hamburger - mobile */}
         <button
@@ -149,35 +152,45 @@ export default function NavBar() {
                   }`}
                 >
                   {item.dropdown.map((sub) => (
-                    <a
+                    <Link
                       key={sub.label}
-                      href={sub.href}
+                      to={sub.to}
+                      onClick={() => {
+                        setMobileDropdown(false);
+                        setMobileOpen(false);
+                      }}
                       className="block px-8 py-2 text-sm text-[#0b6aa8]/80 hover:text-[#0b6aa8] hover:bg-gray-50 hover:underline transition-colors"
                     >
                       {sub.label}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
             ) : (
-              <a
+              <Link
                 key={item.label}
-                href={item.href}
+                to={item.to}
+                onClick={() => setMobileOpen(false)}
                 className="px-5 py-3 text-sm font-semibold text-[#0b6aa8] hover:bg-gray-50 hover:underline transition-colors"
               >
                 {item.label}
-              </a>
+              </Link>
             )
           )}
-          <a
-            href="#book"
+          <button
+            onClick={() => {
+              setMobileOpen(false);
+              setBookingOpen(true);
+            }}
             className="mx-5 my-3 flex items-center justify-center gap-2 bg-gradient-to-r from-[#0b6aa8] to-[#14a4d9] text-white text-sm font-bold px-5 py-2.5 rounded-full shadow-md active:scale-[0.98] transition-transform"
           >
             <Calendar className="w-4 h-4" />
             Book Now
-          </a>
+          </button>
         </nav>
       </div>
+
+      <BookNow isOpen={bookingOpen} onClose={() => setBookingOpen(false)} />
     </header>
   );
 }
