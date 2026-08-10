@@ -20,8 +20,8 @@ import Privacy from "./components/Privacy";
 
 // Service Pages
 import Depression from "./pages/Depression";
-import Anxietydisorders from "./pages/Anxietydisorders";
-import OCD from "./pages/OCD";
+import AnxietyDisorders from "./pages/AnxietyDisorders";
+import OCD from "./pages/Ocd";
 import Bipolardisorder from "./pages/Bipolardisorder";
 import Childadolescentpsychiatry from "./pages/Childadolescentpsychiatry";
 import Deaddictionrecovery from "./pages/Deaddictionrecovery";
@@ -61,7 +61,6 @@ function App() {
     <Routes>
       {/* Shared Layout */}
       <Route element={<Layout />}>
-        
         {/* Home */}
         <Route path="/" element={<HomePage />} />
 
@@ -87,7 +86,7 @@ function App() {
 
         <Route
           path="/service/anxiety-disorders"
-          element={<Anxietydisorders />}
+          element={<AnxietyDisorders />}
         />
 
         <Route
@@ -114,7 +113,6 @@ function App() {
           path="/service/sexual-health-counseling"
           element={<Sexualhealthcounseling />}
         />
-
       </Route>
     </Routes>
   );
