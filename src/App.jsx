@@ -1,65 +1,62 @@
-import "./App.css";
-import { Routes, Route, Outlet } from "react-router-dom";
+import './App.css'
+import { Routes, Route, Outlet } from 'react-router-dom'
 
-import Detail from "./components/Detail";
-import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import Revive from "./components/Revive";
-import About from "./components/About";
-import Banner from "./components/Banner";
-import Service from "./components/Service";
-import Procedure from "./components/Procedure";
-import Consult from "./components/Consult";
-import Whychoose from "./components/Whychoose";
-import Brands from "./components/Brands";
-import Footer from "./components/Footer";
-import Contact from "./components/Contact";
-import Blog from "./components/Blog";
-import Booknow from "./components/Booknow";
-import Privacy from "./components/Privacy";
+import Detail from './components/Detail'
+import Navbar from './components/Navbar'
+import Home from './components/Home'
+import Revive from './components/Revive'
+import About from './components/About'
+import Banner from './components/Banner'
+import Service from './components/Service'
+import Procedure from './components/Procedure'
+import Consult from './components/Consult'
+import Whychoose from './components/Whychoose'
+import Brands from './components/Brands'
+import Footer from './components/Footer'
+import Contact from './components/Contact'
+import Blog from './components/Blog'
+import Booknow from './components/Booknow'
+import Privacy from './components/Privacy'
 
-// Service Pages
-import Depression from "./pages/Depression";
-import Anxiety from "./pages/Anxiety";  
-import OCD from "./pages/Ocd";
-import Bipolardisorder from "./pages/Bipolardisorder";
-import Childadolescentpsychiatry from "./pages/Childadolescentpsychiatry";
-import Deaddictionrecovery from "./pages/Deaddictionrecovery";
-import Sexualhealthcounseling from "./pages/Sexualhealthcounseling";
+// Service pages (one file per Services dropdown item) — src/pages/
+import Depression from './pages/Depression'
+import AnxietyDisorders from './pages/AnxietyDisorders'
+import OCD from './pages/OCD'
+import BipolarDisorder from './pages/BipolarDisorder'
+import ChildAdolescentPsychiatry from './pages/ChildAdolescentPsychiatry'
+import DeAddictionRecovery from './pages/DeAddictionRecovery'
+import SexualHealthCounseling from './pages/SexualHealthCounseling'
 
-// Shared Layout
+// Shared layout: Navbar on top, Footer at bottom, page content in between
 function Layout() {
   return (
     <>
       <Navbar />
-
       <Outlet />
-
       <Footer />
     </>
-  );
+  )
 }
 
-// Home Page
 function HomePage() {
   return (
     <>
-      <Banner />
       <Home />
       <Revive />
+      <About />
+      <Banner />
       <Service />
       <Procedure />
       <Consult />
       <Whychoose />
       <Brands />
     </>
-  );
+  )
 }
 
 function App() {
   return (
     <Routes>
-      {/* Shared Layout */}
       <Route element={<Layout />}>
         {/* Home */}
         <Route path="/" element={<HomePage />} />
@@ -76,46 +73,19 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/booknow" element={<Booknow />} />
-        <Route path="/privacy-policy" element={<Privacy />} />
+        <Route path="privacy-policy" element={<Privacy />} />
 
-        {/* Service Dropdown Pages */}
-        <Route
-          path="/service/depression"
-          element={<Depression />}
-        />
-
-        <Route
-          path="/service/anxiety-disorders"
-          element={<Anxiety/>}
-        />
-
-        <Route
-          path="/service/ocd"
-          element={<OCD />}
-        />
-
-        <Route
-          path="/service/bipolar-disorder"
-          element={<Bipolardisorder />}
-        />
-
-        <Route
-          path="/service/child-adolescent-psychiatry"
-          element={<Childadolescentpsychiatry />}
-        />
-
-        <Route
-          path="/service/de-addiction-recovery"
-          element={<Deaddictionrecovery />}
-        />
-
-        <Route
-          path="/service/sexual-health-counseling"
-          element={<Sexualhealthcounseling />}
-        />
+        {/* Service dropdown pages — src/pages/ */}
+        <Route path="/service/depression" element={<Depression />} />
+        <Route path="/service/anxiety-disorders" element={<AnxietyDisorders />} />
+        <Route path="/service/ocd" element={<OCD />} />
+        <Route path="/service/bipolar-disorder" element={<BipolarDisorder />} />
+        <Route path="/service/child-adolescent-psychiatry" element={<ChildAdolescentPsychiatry />} />
+        <Route path="/service/de-addiction-recovery" element={<DeAddictionRecovery />} />
+        <Route path="/service/sexual-health-counseling" element={<SexualHealthCounseling />} />
       </Route>
     </Routes>
-  );
+  )
 }
 
-export default App;
+export default App
