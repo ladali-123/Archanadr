@@ -2,13 +2,14 @@ import { ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
+
 const QUICK_LINKS = [
   { label: "Homepage", to: "/" },
   { label: "About Us", to: "/about" },
   { label: "Our Services", to: "/service" },
   { label: "Our Blog", to: "/blog" },
   { label: "Contact Us", to: "/contact" },
-  { label: "Privacy Policy", to: null }, // page not built yet
+  { label: "Privacy Policy", to: "/privacy-policy" },
 ];
 
 export default function FooterOnly() {
@@ -29,9 +30,12 @@ export default function FooterOnly() {
               compassionate psychiatric care with modern treatment
               approaches.
             </p>
-            <button className="mt-5 bg-[#1298F3] px-6 py-3 rounded-full text-sm font-semibold hover:bg-white hover:text-[#0873A8] transition">
+            <Link
+              to="/about"
+              className="mt-5 inline-block bg-[#1298F3] px-6 py-3 rounded-full text-sm font-semibold hover:bg-white hover:text-[#0873A8] transition"
+            >
               READ MORE
-            </button>
+            </Link>
           </div>
 
           {/* Quick Links */}

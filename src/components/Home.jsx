@@ -1,4 +1,3 @@
-
 import {
   Phone,
   MessageCircle,
@@ -7,6 +6,7 @@ import {
   CheckCircle2,
   Brain,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import mame from "../assets/mame.png";
 
 export default function PsychiatristHero() {
@@ -32,12 +32,12 @@ export default function PsychiatristHero() {
       `}</style>
 
       {/* पूरा सेक्शन – अब बैकग्राउंड इमेज के साथ */}
-      <section className="relative grid lg:grid-cols-[1.15fr_1fr] min-h-screen overflow-hidden">
+      <section className="relative grid lg:grid-cols-[1.15fr_1fr] min-h-[560px] lg:min-h-screen overflow-hidden">
         {/* बैकग्राउंड इमेज – पूरे सेक्शन को कवर करेगी */}
         <img
           src={mame}
           alt="Background"
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="absolute inset-0 w-full h-full object-cover object-[78%_18%] lg:object-center blur-[2px] lg:blur-none"
         />
 
         {/* डार्क ओवरले – टेक्स्ट को पढ़ने योग्य बनाने के लिए */}
@@ -104,13 +104,13 @@ export default function PsychiatristHero() {
               <MessageCircle className="w-5 h-5" />
               WhatsApp Now
             </a>
-            <a
-              href="tel:+91XXXXXXXXXX"
+            <Link
+              to="/contact"
               className="inline-flex items-center gap-2 border border-[#E7A23A] text-[#E7A23A] hover:bg-[#E7A23A] hover:text-[#0E2731] transition-colors font-semibold px-6 py-3 rounded-full"
             >
               <Phone className="w-5 h-5" />
               Book Appointment
-            </a>
+            </Link>
           </div>
 
           {/* trust row */}
@@ -125,7 +125,9 @@ export default function PsychiatristHero() {
         </div>
 
         {/* ---------------- RIGHT: empty panel (transparent) with quote ---------------- */}
-        <div className="relative z-10 flex flex-col justify-end px-6 py-10 lg:py-20">
+        {/* hidden on mobile — it has no content, so on small screens it was just leaving
+            an empty floating box below the hero text. It only appears from lg: up. */}
+        <div className="relative z-10 hidden lg:flex flex-col justify-end px-6 py-10 lg:py-20">
           {/* floating quote card – अब बाईं तरफ भी शिफ्ट कर सकते हैं, लेकिन यहाँ रखा है */}
           <div className="bg-black/40 backdrop-blur-md border border-white/10 rounded-2xl px-5 py-4 max-w-xs ml-auto">
             

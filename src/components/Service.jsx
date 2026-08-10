@@ -1,4 +1,5 @@
-import  { useState } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Brain,
   Wine,
@@ -240,7 +241,7 @@ export default function ServicesSection() {
           </div>
           <h2 className="font-['Inter'] text-3xl md:text-[40px] font-extrabold text-[#424242] leading-tight">
             Services We{" "}
-            <span className="font-['Playfair_Display'] italic font-semibold text-[#E8A33D]">
+            <span className="font-['Playfair_Display'] italic font-semibold text-[#1D5D9B]">
               Provide
             </span>
           </h2>
@@ -261,22 +262,20 @@ export default function ServicesSection() {
               <button
                 key={cat.id}
                 onClick={() => setActive(cat.id)}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold font-['Inter'] transition-all duration-300 border ${
-                  isActive
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold font-['Inter'] transition-all duration-300 border ${isActive
                     ? "bg-[#1D5D9B] text-white border-[#1D5D9B] shadow-md"
                     : "bg-white text-[#3A4A61] border-[#E1E6ED] hover:border-[#E8A33D] hover:text-[#1D5D9B]"
-                }`}
+                  }`}
               >
                 <Icon
                   className={`w-4 h-4 ${isActive ? "text-[#E8A33D]" : "text-[#9AA6B5]"}`}
                 />
                 {cat.label}
                 <span
-                  className={`text-[11px] font-bold rounded-full px-1.5 ${
-                    isActive
+                  className={`text-[11px] font-bold rounded-full px-1.5 ${isActive
                       ? "bg-[#E8A33D] text-[#0F2544]"
                       : "bg-[#F0F2F5] text-[#8592A3]"
-                  }`}
+                    }`}
                 >
                   {count}
                 </span>
@@ -312,12 +311,12 @@ export default function ServicesSection() {
             >
               <Phone className="w-4 h-4" /> WhatsApp Now
             </a>
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="flex items-center gap-2 border border-[#E8A33D] text-[#E8A33D] hover:bg-[#E8A33D] hover:text-[#0F2544] font-['Inter'] font-semibold text-sm px-5 py-3 rounded-full transition-colors"
             >
               Book Appointment
-            </a>
+            </Link>
           </div>
         </div>
       </div>

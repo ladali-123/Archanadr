@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function CtaSection() {
   const bgImage =
@@ -38,7 +39,8 @@ export default function CtaSection() {
 
         {/* Button */}
         <div className="shrink-0">
-          <button
+          <Link
+            to="/contact"
             className="group inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-500 text-[#0F2544] font-semibold text-sm md:text-base px-5 md:px-6 py-3 rounded-full shadow-lg transition-all duration-300 hover:scale-105 whitespace-nowrap"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
@@ -47,7 +49,7 @@ export default function CtaSection() {
               className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
               strokeWidth={2.5}
             />
-          </button>
+          </Link>
         </div>
       </div>
     </section>

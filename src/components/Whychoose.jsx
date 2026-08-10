@@ -81,7 +81,7 @@ export default function WhyChooseUs() {
           </div>
           <h2 className="font-['Inter'] text-3xl md:text-[40px] font-extrabold text-[#424242] leading-tight">
             Why{" "}
-            <span className="font-['Playfair_Display'] italic font-semibold text-[#E8A33D]">
+            <span className="font-['Playfair_Display'] italic font-semibold text-[#1D5D9B]">
               Choose Us?
             </span>
           </h2>

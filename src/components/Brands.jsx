@@ -82,7 +82,7 @@ export default function PatientReviews() {
           </div>
           <h2 className="font-['Inter'] text-3xl md:text-[40px] font-extrabold text-[#424242] leading-tight">
             Patient{" "}
-            <span className="font-['Playfair_Display'] italic font-semibold text-[#E8A33D]">
+            <span className="font-['Playfair_Display'] italic font-semibold text-[#1D5D9B]">
               Experience &amp; Reviews
             </span>
           </h2>
