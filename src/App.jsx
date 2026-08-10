@@ -20,7 +20,7 @@ import Privacy from "./components/Privacy";
 
 // Service Pages
 import Depression from "./pages/Depression";
-import Anxietydisorders from "./pages/Anxietydisorders";
+import Anxiety from "./pages/Anxiety";  
 import OCD from "./pages/Ocd";
 import Bipolardisorder from "./pages/Bipolardisorder";
 import Childadolescentpsychiatry from "./pages/Childadolescentpsychiatry";
@@ -86,7 +86,7 @@ function App() {
 
         <Route
           path="/service/anxiety-disorders"
-          element={<Anxietydisorders />}
+          element={<Anxiety/>}
         />
 
         <Route
