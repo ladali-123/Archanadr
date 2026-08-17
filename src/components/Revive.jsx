@@ -65,7 +65,7 @@ export default function ReviewCarousel() {
 
   // Count-up animation
   useEffect(() => {
-    const target = 3000;
+    const target = 5000;
     const duration = 2000; // 2 seconds
 
     const animate = (timestamp) => {
@@ -131,13 +131,15 @@ export default function ReviewCarousel() {
                 className="relative z-10 animate-[fadeIn_0.5s_ease]"
               >
                 <p
-                  className="font-serif italic text-[#1C2B36] text-base sm:text-lg lg:text-lg leading-relaxed pl-10 sm:pl-14"
+                  className="font-serif italic text-[#1C2B36] text-base sm:text-lg lg:text-lg
+                   leading-relaxed pl-10 sm:pl-14"
                   style={{ fontFamily: "'Lora', Georgia, serif" }}
                 >
                   {review.quote}
                 </p>
                 <p
-                  className="mt-5 pl-10 sm:pl-14 text-lg sm:text-xl font-semibold italic text-[#0F5C73]"
+                  className="mt-5 pl-10 sm:pl-14 text-lg sm:text-xl font-semibold italic 
+                  text-[#0F5C73]"
                   style={{ fontFamily: "'Lora', Georgia, serif" }}
                 >
                   – {review.name}{" "}
@@ -150,12 +152,14 @@ export default function ReviewCarousel() {
 
             {/* Stat panel with animated counter */}
             <div className="flex items-center justify-center md:w-72 shrink-0">
-              <div className="bg-white rounded-2xl shadow-md w-full max-w-xs md:w-60 py-8 px-6 flex flex-col items-center justify-center text-center">
+              <div className="bg-white rounded-2xl shadow-md w-full max-w-xs md:w-60 py-8 px-6 
+              flex flex-col items-center justify-center text-center">
                 <div className="flex items-start justify-center">
                   <span className="text-[#1D5D9B] font-extrabold text-3xl sm:text-4xl tracking-tight">
                     {count.toLocaleString()}
                   </span>
-                  <span className="text-[#1D5D9B] font-extrabold text-2xl sm:text-3xl leading-none mt-1">
+                  <span className="text-[#1D5D9B] font-extrabold text-2xl sm:text-3xl leading-none
+                   mt-1">
                     +
                   </span>
                 </div>

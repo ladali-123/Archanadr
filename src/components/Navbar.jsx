@@ -1,5 +1,25 @@
 import { useState, useRef, useEffect } from "react";
-import { Menu, X, ChevronDown, Calendar } from "lucide-react";
+import {
+  Menu,
+  X,
+  ChevronDown,
+  Calendar,
+  Venus,
+  Stethoscope,
+  ClipboardList,
+  Pill,
+  Users,
+  Baby,
+  Video,
+  Frown,
+  AlertCircle,
+  RefreshCw,
+  Activity,
+  Ban,
+  HeartHandshake,
+  Moon,
+  ShieldAlert,
+} from "lucide-react";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import BookNow from "./Booknow";
@@ -11,14 +31,28 @@ const menuItems = [
     label: "Services",
     to: "/service",
     dropdown: [
-      { label: "Depression", to: "/service/depression" },
-      { label: "Anxiety Disorders", to: "/service/anxiety-disorders" },
-      { label: "OCD", to: "/service/ocd" },
-      { label: "Bipolar Disorder", to: "/service/bipolar-disorder" },
-      { label: "Child & Adolescent Psychiatry", to: "/service/child-adolescent-psychiatry" },
-      { label: "De-Addiction & Recovery", to: "/service/de-addiction-recovery" },
-      { label: "Sexual Health Counseling", to: "/service/sexual-health-counseling" },
-      { label: "View All Services", to: "/service" },
+      { label: "Women's Mental Health", to: "/service/womens-mental-health", icon: Venus },
+      { label: "Psychiatric Consultation", to: "/service/psychiatric-consultation", icon: Stethoscope },
+      { label: "Comprehensive Mental Health Assessment", to: "/service/comprehensive-assessment", icon: ClipboardList },
+      { label: "Medication Management", to: "/service/medication-management", icon: Pill },
+      { label: "Neuropsychiatric Care", to: "/service/neuropsychiatric-care", icon: Users },
+      { label: "Child & Adolescent Psychiatry", to: "/service/child-adolescent-psychiatry", icon: Baby },
+      { label: "Telepsychiatry", to: "/service/telepsychiatry", icon: Video },
+    ],
+  },
+  {
+    label: "Conditions",
+    to: "/service",
+    dropdown: [
+      { label: "Depression", to: "/service/depression", icon: Frown },
+      { label: "Anxiety Disorders", to: "/service/anxiety-disorders", icon: AlertCircle },
+      { label: "OCD", to: "/service/ocd", icon: RefreshCw },
+      { label: "Bipolar Disorder", to: "/service/bipolar-disorder", icon: Activity },
+      { label: "Child & Adolescent Psychiatry", to: "/service/child-adolescent-psychiatry", icon: Baby },
+      { label: "De-Addiction & Recovery", to: "/service/de-addiction-recovery", icon: Ban },
+      { label: "Sexual Health Counseling", to: "/service/sexual-health-counseling", icon: HeartHandshake },
+      { label: "Insomnia & Sleep Disorders", to: "/service/insomnia-sleep-disorders", icon: Moon },
+      { label: "PTSD & Trauma", to: "/service/ptsd-trauma", icon: ShieldAlert },
     ],
   },
   { label: "Blog", to: "/blog" },
@@ -26,15 +60,15 @@ const menuItems = [
 ];
 export default function NavBar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [desktopDropdown, setDesktopDropdown] = useState(false);
-  const [mobileDropdown, setMobileDropdown] = useState(false);
+  const [desktopDropdown, setDesktopDropdown] = useState(null);
+  const [mobileDropdown, setMobileDropdown] = useState(null);
   const [bookingOpen, setBookingOpen] = useState(false);
   const dropdownRef = useRef(null);
 
   useEffect(() => {
     function handleClickOutside(e) {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setDesktopDropdown(false);
+        setDesktopDropdown(null);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -46,7 +80,7 @@ export default function NavBar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between pl-2 lg:pl-0 pr-4 sm:pr-6 py-1 sm:py-1.5">
         {/* Logo + Name */}
         <Link to="/" className="flex items-center gap-2 shrink-0">
-          <img src={logo} alt="Dr Archana Kri Logo" className="h-16 w-16 sm:h-20 sm:w-20 object-contain" />
+          <img src={logo} alt="Dr Archana Kri Logo" className="h-16 w-16 sm:h-18 sm:w-20 object-contain" />
           <div className="leading-tight">
             <p className="text-base md:text-lg font-bold text-[#0b6aa8] tracking-tight">
               DR. ARCHANA SINGH
@@ -58,49 +92,58 @@ export default function NavBar() {
         </Link>
 
         {/* Desktop menu */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-6" ref={dropdownRef}>
           {menuItems.map((item) =>
             item.dropdown ? (
-              <div key={item.label} className="relative" ref={dropdownRef}>
+              <div key={item.label} className="relative">
                 <button
-                  onClick={() => setDesktopDropdown((v) => !v)}
-                  className="group flex items-center gap-1 text-lg font-semibold text-[#0b6aa8]
-                   transition-colors"
+                  onClick={() =>
+                    setDesktopDropdown((v) => (v === item.label ? null : item.label))
+                  }
+                  className="group flex items-center gap-1 text-sm xl:text-base font-semibold text-[#0b6aa8]
+                   transition-colors whitespace-nowrap"
                 >
                   <span className="relative">
                     {item.label}
                     <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-[#0b6aa8] transition-all duration-200 group-hover:w-full" />
                   </span>
                   <ChevronDown
-                    className={`w-4 h-4 transition-transform duration-200 ${
-                      desktopDropdown ? "rotate-180" : ""
+                    className={`w-4 h-4 shrink-0 transition-transform duration-200 ${
+                      desktopDropdown === item.label ? "rotate-180" : ""
                     }`}
                   />
                 </button>
                 <div
-                  className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-56 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden origin-top transition-all duration-200 ${
-                    desktopDropdown
+                  className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-max min-w-[200px] ${
+                    item.label === "Services" ? "max-w-[260px]" : "max-w-[300px]"
+                  } bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden origin-top transition-all duration-200 ${
+                    desktopDropdown === item.label
                       ? "opacity-100 scale-100 pointer-events-auto"
                       : "opacity-0 scale-95 pointer-events-none"
                   }`}
                 >
-                  {item.dropdown.map((sub) => (
-                    <Link
-                      key={sub.label}
-                      to={sub.to}
-                      onClick={() => setDesktopDropdown(false)}
-                      className="block px-4 py-2.5 text-sm text-[#0b6aa8] hover:bg-[#0b6aa8]/5 hover:underline transition-colors"
-                    >
-                      {sub.label}
-                    </Link>
-                  ))}
+                  <div className="flex flex-col p-2">
+                    {item.dropdown.map((sub, idx) => (
+                      <Link
+                        key={sub.label}
+                        to={sub.to}
+                        onClick={() => setDesktopDropdown(null)}
+                        className={`flex items-center gap-3 px-3 py-3 text-[15px] font-normal leading-[1.3] text-[#0b6aa8] hover:bg-[#0b6aa8]/5 hover:underline transition-colors ${
+                          idx !== item.dropdown.length - 1 ? "border-b border-gray-100" : ""
+                        }`}
+                      >
+                        {sub.icon && <sub.icon className="w-5 h-5 shrink-0 text-[#0b6aa8]" />}
+                        {sub.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
             ) : (
               <Link
                 key={item.label}
                 to={item.to}
-                className="group relative text-lg font-semibold text-[#0b6aa8] transition-colors"
+                className="group relative text-sm xl:text-base font-semibold text-[#0b6aa8] transition-colors whitespace-nowrap"
               >
                 {item.label}
                 <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-[#0b6aa8] transition-all duration-200 group-hover:w-full" />
@@ -112,10 +155,10 @@ export default function NavBar() {
         {/* Book Now - desktop */}
         <button
           onClick={() => setBookingOpen(true)}
-          className="hidden lg:flex items-center gap-2.5 bg-gradient-to-r from-[#0b6aa8] via-[#0f8ac9] to-[#14a4d9] text-white text-base font-bold pl-5 pr-7 py-3.5 rounded-full shadow-lg shadow-[#0b6aa8]/30 hover:shadow-xl hover:shadow-[#0b6aa8]/40 hover:scale-[1.05] active:scale-[0.97] transition-all duration-200 ring-2 ring-white/40"
+          className="hidden lg:flex items-center gap-2 xl:gap-2.5 shrink-0 bg-gradient-to-r from-[#0b6aa8] via-[#0f8ac9] to-[#14a4d9] text-white text-sm xl:text-base font-bold pl-4 pr-5 xl:pl-5 xl:pr-7 py-2.5 xl:py-3.5 rounded-full shadow-lg shadow-[#0b6aa8]/30 hover:shadow-xl hover:shadow-[#0b6aa8]/40 hover:scale-[1.05] active:scale-[0.97] transition-all duration-200 ring-2 ring-white/40"
         >
-          <Calendar className="w-5 h-5 shrink-0" />
-          Book Now
+          <Calendar className="w-4 h-4 xl:w-5 xl:h-5 shrink-0" />
+          Book Appointment
         </button>
 
         {/* Hamburger - mobile */}
@@ -130,7 +173,7 @@ export default function NavBar() {
 
       {/* Mobile slide panel */}
       <div
-        className={`lg:hidden absolute top-full right-0 w-2/3 max-w-xs bg-white shadow-2xl rounded-bl-2xl border-l border-b border-gray-100 origin-top-right transition-all duration-200 ${
+        className={`lg:hidden absolute top-full right-0 w-2/3 max-w-xs bg-white shadow-2xl rounded-bl-2xl border-l border-b border-gray-100 origin-top-right transition-all duration-200 max-h-[80vh] overflow-y-auto ${
           mobileOpen
             ? "opacity-100 scale-100 pointer-events-auto"
             : "opacity-0 scale-95 pointer-events-none"
@@ -141,19 +184,21 @@ export default function NavBar() {
             item.dropdown ? (
               <div key={item.label}>
                 <button
-                  onClick={() => setMobileDropdown((v) => !v)}
+                  onClick={() =>
+                    setMobileDropdown((v) => (v === item.label ? null : item.label))
+                  }
                   className="w-full flex items-center justify-between px-5 py-3 text-sm font-semibold text-[#0b6aa8] hover:bg-gray-50 hover:underline transition-colors"
                 >
                   {item.label}
                   <ChevronDown
                     className={`w-4 h-4 transition-transform duration-200 ${
-                      mobileDropdown ? "rotate-180" : ""
+                      mobileDropdown === item.label ? "rotate-180" : ""
                     }`}
                   />
                 </button>
                 <div
                   className={`overflow-hidden transition-all duration-200 ${
-                    mobileDropdown ? "max-h-40" : "max-h-0"
+                    mobileDropdown === item.label ? "max-h-[500px]" : "max-h-0"
                   }`}
                 >
                   {item.dropdown.map((sub) => (
@@ -161,11 +206,12 @@ export default function NavBar() {
                       key={sub.label}
                       to={sub.to}
                       onClick={() => {
-                        setMobileDropdown(false);
+                        setMobileDropdown(null);
                         setMobileOpen(false);
                       }}
-                      className="block px-8 py-2 text-sm text-[#0b6aa8]/80 hover:text-[#0b6aa8] hover:bg-gray-50 hover:underline transition-colors"
+                      className="flex items-center gap-3 px-8 py-2.5 text-sm font-normal text-[#0b6aa8]/90 hover:text-[#0b6aa8] hover:bg-gray-50 hover:underline transition-colors"
                     >
+                      {sub.icon && <sub.icon className="w-4 h-4 shrink-0" />}
                       {sub.label}
                     </Link>
                   ))}

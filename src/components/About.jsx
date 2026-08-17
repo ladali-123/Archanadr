@@ -28,7 +28,7 @@ export default function ManahHealthAbout() {
         </div>
 
         {/* ---- Content row ---- */}
-        <div className="flex flex-col items-stretch gap-12 md:flex-row md:justify-between md:gap-22">
+        <div className="flex flex-col items-stretch gap-12 md:flex-row md:justify-between md:gap-16">
           {/* ---- Left: Image (wider, height matches text column) ---- */}
           <div className="order-2 w-full md:order-1 md:w-1/2">
             <img

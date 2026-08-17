@@ -19,14 +19,10 @@ import Booknow from './components/Booknow'
 import Privacy from './components/Privacy'
 
 // Service pages (one file per Services dropdown item) — src/pages/
-import Depression from './pages/Depression'
-import AnxietyDisorders from './pages/AnxietyDisorders'
-import OCD from './pages/OCD'
-import BipolarDisorder from './pages/BipolarDisorder'
-import ChildAdolescentPsychiatry from './pages/ChildAdolescentPsychiatry'
-import DeAddictionRecovery from './pages/DeAddictionRecovery'
-import SexualHealthCounseling from './pages/SexualHealthCounseling'
-
+import Womanmental from './pages/Womanmental'
+import Comprehensive from './pages/Comprehensive'
+import Psychiatric from './pages/Psychiatric'
+import Medication from './pages/Medication'
 // Shared layout: Navbar on top, Footer at bottom, page content in between
 function Layout() {
   return (
@@ -76,13 +72,11 @@ function App() {
         <Route path="privacy-policy" element={<Privacy />} />
 
         {/* Service dropdown pages — src/pages/ */}
-        <Route path="/service/depression" element={<Depression />} />
-        <Route path="/service/anxiety-disorders" element={<AnxietyDisorders />} />
-        <Route path="/service/ocd" element={<OCD />} />
-        <Route path="/service/bipolar-disorder" element={<BipolarDisorder />} />
-        <Route path="/service/child-adolescent-psychiatry" element={<ChildAdolescentPsychiatry />} />
-        <Route path="/service/de-addiction-recovery" element={<DeAddictionRecovery />} />
-        <Route path="/service/sexual-health-counseling" element={<SexualHealthCounseling />} />
+        <Route path="/service/womens-mental-health" element={<Womanmental />} />
+         <Route path="/service/comprehensive-assessment" element={<Comprehensive />} />
+         <Route path="/service/psychiatric-consultation" element={<Psychiatric />} />
+         <Route path="/service/medication-management" element={<Medication />} />
+
       </Route>
     </Routes>
   )

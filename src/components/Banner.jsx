@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 const stats = [
   { value: 4859, suffixText: "", plus: true, label: "Patient Recovery" },
   { value: 5, suffixText: "", plus: true, label: "Team of Mental Health Professionals" },
-  { value: 5, suffixText: "Y", plus: true, label: "Experience" },
+  { value: 15, suffixText: "Y", plus: true, label: "Experience" },
 ];
 
 function useCountUp(target, start, duration = 1500) {
