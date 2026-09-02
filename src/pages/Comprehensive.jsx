@@ -146,7 +146,7 @@ function FAQItem({ item, isOpen, onClick }) {
           {item.q}
         </span>
         <ChevronDown
-          className={`w-4 h-4 shrink-0 text-[#1D5D9B] transition-transform duration-200 ${
+          className={`w-4 h-4 shrink-0 text-[#4a1263] transition-transform duration-200 ${
             isOpen ? "rotate-180" : ""
           }`}
         />
@@ -178,12 +178,12 @@ export default function ComprehensiveAssessment() {
           alt="Comprehensive Mental Health Assessment"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-[#0F2544]/60" />
+        {/* ✅ Overlay हटा दिया गया – अब पिक्चर साफ दिखेगी */}
         <div className="relative h-full flex flex-col items-center justify-center text-center px-6">
-          <h1 className="font-['Inter'] text-3xl md:text-[44px] font-extrabold text-white mb-3">
+          <h1 className="font-['Inter'] text-3xl md:text-[44px] font-extrabold text-white mb-3 drop-shadow-md">
             Comprehensive Mental Health Assessment
           </h1>
-          <p className="font-['Inter'] text-[14px] md:text-base text-[#E7EEF6] max-w-2xl leading-relaxed">
+          <p className="font-['Inter'] text-[14px] md:text-base text-white max-w-2xl leading-relaxed drop-shadow-md">
             A thorough, evidence-based evaluation to understand exactly
             what you're dealing with — and what to do about it.
           </p>
@@ -205,8 +205,8 @@ export default function ComprehensiveAssessment() {
                   to={item.to}
                   className={`flex items-center justify-between gap-2 px-4 py-3.5 rounded-lg text-[13.5px] leading-snug font-['Inter'] font-medium transition-colors ${
                     isActive
-                      ? "bg-[#1D5D9B] text-white"
-                      : "text-[#3A4A61] border-b border-[#EEF1F5] last:border-b-0 hover:bg-[#F6F8FA]"
+                      ? "bg-[#4a1263] text-white"
+                      : "text-[#3A4A61] border-b border-[#EEF1F5] last:border-b-0 hover:bg-[#F8F6FA]"
                   }`}
                 >
                   <span>{item.label}</span>
@@ -220,7 +220,7 @@ export default function ComprehensiveAssessment() {
         {/* ---------------- MAIN CONTENT ---------------- */}
         <div>
           {/* Main image */}
-          <div className="rounded-2xl overflow-hidden mb-10 shadow-[0_10px_30px_rgba(15,37,68,0.10)]">
+          <div className="rounded-2xl overflow-hidden mb-10 shadow-[0_10px_30px_rgba(74,18,99,0.10)]">
             <img
               src={beleive}
               alt="Mental Health Assessment Consultation"
@@ -240,7 +240,7 @@ export default function ComprehensiveAssessment() {
               accurate, complete picture of what's actually going on.
             </p>
             <p className="font-['Inter'] text-[14.5px] leading-relaxed text-[#5B6B84] mb-4">
-              At Manah Psychiatry, assessments combine structured clinical
+              At Dr. Archana Singh Psychiatry, assessments combine structured clinical
               interviews with validated tools where needed, so that
               treatment decisions are based on evidence, not guesswork.
               This is especially useful when symptoms overlap or don't fit
@@ -266,7 +266,7 @@ export default function ComprehensiveAssessment() {
             <ul className="space-y-3">
               {CONCERNS.map((c) => (
                 <li key={c} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-4.5 h-4.5 text-[#1D5D9B] shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4.5 h-4.5 text-[#4a1263] shrink-0 mt-0.5" />
                   <span className="font-['Inter'] text-[14px] text-[#3A4A61]">
                     {c}
                   </span>
@@ -278,12 +278,12 @@ export default function ComprehensiveAssessment() {
       </div>
 
       {/* ---------------- BENEFITS ---------------- */}
-      <section className="bg-[#F6F8FA] px-6 md:px-10 lg:px-12 py-12 md:py-16">
+      <section className="bg-[#F8F6FA] px-6 md:px-10 lg:px-12 py-12 md:py-16">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div>
             <h2 className="font-['Inter'] text-2xl md:text-[32px] font-extrabold text-[#424242] leading-tight mb-4">
               Benefits of a{" "}
-              <span className="font-['Playfair_Display'] italic font-semibold text-[#1D5D9B]">
+              <span className="font-['Playfair_Display'] italic font-semibold text-[#4a1263]">
                 Clear Diagnosis
               </span>
             </h2>
@@ -295,7 +295,7 @@ export default function ComprehensiveAssessment() {
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
               {BENEFITS.map((b) => (
                 <li key={b} className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#1D5D9B] shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#4a1263] shrink-0 mt-0.5" />
                   <span className="font-['Inter'] text-[13.5px] text-[#3A4A61] leading-snug">
                     {b}
                   </span>
@@ -303,7 +303,7 @@ export default function ComprehensiveAssessment() {
               ))}
             </ul>
           </div>
-          <div className="rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(15,37,68,0.10)]">
+          <div className="rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(74,18,99,0.10)]">
             <img
               src={comp}
               alt="Assessment Benefits"
@@ -319,7 +319,7 @@ export default function ComprehensiveAssessment() {
           <div className="text-center max-w-2xl mx-auto mb-14">
             <h2 className="font-['Inter'] text-2xl md:text-[32px] font-extrabold text-[#424242] leading-tight">
               How Our{" "}
-              <span className="font-['Playfair_Display'] italic font-semibold text-[#1D5D9B]">
+              <span className="font-['Playfair_Display'] italic font-semibold text-[#4a1263]">
                 Assessment Process Works
               </span>
             </h2>
@@ -327,7 +327,7 @@ export default function ComprehensiveAssessment() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {PROCESS.map((item) => (
               <div key={item.step} className="flex gap-4">
-                <span className="shrink-0 w-11 h-11 rounded-lg bg-[#1D5D9B] text-white font-['Inter'] font-bold text-sm flex items-center justify-center">
+                <span className="shrink-0 w-11 h-11 rounded-lg bg-[#4a1263] text-white font-['Inter'] font-bold text-sm flex items-center justify-center">
                   {item.step}
                 </span>
                 <div>
@@ -345,12 +345,12 @@ export default function ComprehensiveAssessment() {
       </section>
 
       {/* ---------------- WHY CHOOSE US ---------------- */}
-      <section className="bg-[#F6F8FA] px-6 md:px-10 lg:px-16 py-16 md:py-20">
+      <section className="bg-[#F8F6FA] px-6 md:px-10 lg:px-16 py-16 md:py-20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-4">
             <h2 className="font-['Inter'] text-2xl md:text-[32px] font-extrabold text-[#424242] leading-tight">
               Why Choose Us for{" "}
-              <span className="font-['Playfair_Display'] italic font-semibold text-[#1D5D9B]">
+              <span className="font-['Playfair_Display'] italic font-semibold text-[#4a1263]">
                 Mental Health Assessment
               </span>
             </h2>
@@ -366,10 +366,10 @@ export default function ComprehensiveAssessment() {
               return (
                 <div
                   key={item.title}
-                  className="bg-white rounded-2xl border border-[#E7EBF1] p-6 shadow-[0_2px_10px_rgba(15,37,68,0.06)]"
+                  className="bg-white rounded-2xl border border-[#E7EBF1] p-6 shadow-[0_2px_10px_rgba(74,18,99,0.06)]"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-[#1D5D9B]/10 flex items-center justify-center mb-4">
-                    <Icon className="w-5 h-5 text-[#1D5D9B]" strokeWidth={2} />
+                  <div className="w-10 h-10 rounded-lg bg-[#4a1263]/10 flex items-center justify-center mb-4">
+                    <Icon className="w-5 h-5 text-[#4a1263]" strokeWidth={2} />
                   </div>
                   <h3 className="font-['Inter'] text-[15px] font-bold text-[#16233B] mb-2">
                     {item.title}
@@ -390,7 +390,7 @@ export default function ComprehensiveAssessment() {
           <div>
             <h2 className="font-['Inter'] text-2xl md:text-[32px] font-extrabold text-[#424242] leading-tight mb-8">
               Frequently Asked{" "}
-              <span className="font-['Playfair_Display'] italic font-semibold text-[#1D5D9B]">
+              <span className="font-['Playfair_Display'] italic font-semibold text-[#4a1263]">
                 Questions
               </span>
             </h2>
@@ -406,15 +406,14 @@ export default function ComprehensiveAssessment() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-[#0a5f8c] to-[#0F2544] rounded-2xl p-8">
+          <div className="bg-gradient-to-br from-[#5a1a7a] to-[#2b0a40] rounded-2xl p-8">
             <h3 className="font-['Inter'] text-white text-xl font-bold mb-2">
               Still have any questions?
             </h3>
-            <p className="font-['Inter'] text-[#C4D0E0] text-sm mb-6">
+            <p className="font-['Inter'] text-[#E4D3EC] text-sm mb-6">
               Feel free to contact us and get satisfactory answers.
             </p>
             <div className="flex flex-col gap-3">
-              {/* ✅ फिक्स किया गया – <a> टैग जोड़ा गया */}
               <a
                 href="tel:+917543976796"
                 className="flex items-center gap-2.5 text-white font-['Inter'] text-sm font-semibold"

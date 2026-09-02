@@ -1,17 +1,6 @@
 import  { useState, useEffect } from "react";
 import { X, User, Phone, Mail, CalendarDays, Clock3, Send, MapPinned, Laptop } from "lucide-react";
 
-/**
- * BookingModal — Dr. Archana Singh, Psychiatrist, Patna
- * Same palette + type as the rest of the site:
- *  navy #0F2544  |  heading #424242  |  accent #1D5D9B  |  eyebrow amber-400
- *
- * Usage:
- *   const [bookingOpen, setBookingOpen] = useState(false);
- *   <button onClick={() => setBookingOpen(true)}>Book Now</button>
- *   <BookingModal isOpen={bookingOpen} onClose={() => setBookingOpen(false)} />
- */
-
 const FONT_IMPORT = `@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700;800&display=swap');`;
 
 const CONCERNS = [
@@ -30,7 +19,7 @@ const FieldLabel = ({ children }) => (
 );
 
 const inputClasses =
-  "w-full font-['Inter'] text-[14px] text-[#16233B] placeholder:text-[#9AA6B5] bg-[#F6F8FA] border border-[#E7EBF1] rounded-xl px-4 py-3 outline-none focus:border-[#1D5D9B] focus:bg-white focus:ring-2 focus:ring-[#1D5D9B]/15 transition-all";
+  "w-full font-['Inter'] text-[14px] text-[#16233B] placeholder:text-[#9AA6B5] bg-[#F8F6FA] border border-[#E7EBF1] rounded-xl px-4 py-3 outline-none focus:border-[#4a1263] focus:bg-white focus:ring-2 focus:ring-[#4a1263]/15 transition-all";
 
 export default function BookingModal({ isOpen, onClose }) {
   const [form, setForm] = useState({
@@ -45,7 +34,6 @@ export default function BookingModal({ isOpen, onClose }) {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  // lock background scroll while modal is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -57,7 +45,6 @@ export default function BookingModal({ isOpen, onClose }) {
     };
   }, [isOpen]);
 
-  // close on Escape
   useEffect(() => {
     const onKey = (e) => e.key === "Escape" && onClose();
     if (isOpen) document.addEventListener("keydown", onKey);
@@ -72,14 +59,12 @@ export default function BookingModal({ isOpen, onClose }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Wire this up to your backend / email service / WhatsApp API
     console.log("Booking submitted:", form);
     setSubmitted(true);
   };
 
   const handleClose = () => {
     onClose();
-    // reset after the close animation would run, so the form is fresh next time
     setTimeout(() => {
       setSubmitted(false);
       setForm({
@@ -99,18 +84,15 @@ export default function BookingModal({ isOpen, onClose }) {
     <div className="fixed inset-0 z-[999] flex items-center justify-center p-4">
       <style>{FONT_IMPORT}</style>
 
-      {/* backdrop */}
       <div
         onClick={handleClose}
-        className="absolute inset-0 bg-[#0F2544]/60 backdrop-blur-sm animate-[fadeIn_0.2s_ease]"
+        className="absolute inset-0 bg-[#2b0a40]/60 backdrop-blur-sm animate-[fadeIn_0.2s_ease]"
       />
 
-      {/* modal */}
       <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto animate-[popIn_0.25s_ease]">
-        {/* header */}
-        <div className="sticky top-0 bg-gradient-to-r from-[#0a5f8c] via-[#0b6a9a] to-[#0d4f73] px-6 py-5 rounded-t-2xl flex items-center justify-between">
+        <div className="sticky top-0 bg-gradient-to-r from-[#3f0f5c] via-[#8e2f8f] to-[#c9a227] px-6 py-5 rounded-t-2xl flex items-center justify-between">
           <div>
-            <p className="font-['Inter'] text-[11px] font-bold tracking-[0.15em] text-amber-300 uppercase mb-1">
+            <p className="font-['Inter'] text-[11px] font-bold tracking-[0.15em] text-[#f5e6b8] uppercase mb-1">
               Book an Appointment
             </p>
             <h3 className="font-['Inter'] text-white text-lg font-bold">
@@ -129,7 +111,7 @@ export default function BookingModal({ isOpen, onClose }) {
         <div className="p-6">
           {submitted ? (
             <div className="flex flex-col items-center text-center py-10">
-              <div className="w-14 h-14 rounded-full bg-[#1D5D9B] flex items-center justify-center mb-5">
+              <div className="w-14 h-14 rounded-full bg-[#4a1263] flex items-center justify-center mb-5">
                 <Send className="w-6 h-6 text-white" />
               </div>
               <h3 className="font-['Inter'] text-xl font-bold text-[#16233B] mb-2">
@@ -141,14 +123,13 @@ export default function BookingModal({ isOpen, onClose }) {
               </p>
               <button
                 onClick={handleClose}
-                className="font-['Inter'] font-semibold text-[13.5px] text-white bg-[#1D5D9B] px-6 py-2.5 rounded-full hover:bg-[#164a7d] transition-colors"
+                className="font-['Inter'] font-semibold text-[13.5px] text-white bg-[#4a1263] px-6 py-2.5 rounded-full hover:bg-[#5a1a7a] transition-colors"
               >
                 Done
               </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
-              {/* consultation mode toggle */}
               <div>
                 <FieldLabel>Consultation Mode</FieldLabel>
                 <div className="grid grid-cols-2 gap-3">
@@ -162,8 +143,8 @@ export default function BookingModal({ isOpen, onClose }) {
                       onClick={() => setForm({ ...form, mode: label })}
                       className={`flex items-center justify-center gap-2 py-2.5 rounded-xl border font-['Inter'] text-[13.5px] font-semibold transition-all ${
                         form.mode === label
-                          ? "bg-[#1D5D9B] border-[#1D5D9B] text-white"
-                          : "bg-[#F6F8FA] border-[#E7EBF1] text-[#3A4552] hover:border-[#1D5D9B]/40"
+                          ? "bg-[#4a1263] border-[#4a1263] text-white"
+                          : "bg-[#F8F6FA] border-[#E7EBF1] text-[#3A4552] hover:border-[#4a1263]/40"
                       }`}
                     >
                       <Icon className="w-4 h-4" />
@@ -282,7 +263,7 @@ export default function BookingModal({ isOpen, onClose }) {
 
               <button
                 type="submit"
-                className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#0a5f8c] via-[#0b6a9a] to-[#0d4f73] text-white font-['Inter'] font-semibold text-[15px] py-3.5 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#3f0f5c] via-[#8e2f8f] to-[#c9a227] text-white font-['Inter'] font-semibold text-[15px] py-3.5 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
               >
                 Confirm Booking
                 <Send className="w-4 h-4" />

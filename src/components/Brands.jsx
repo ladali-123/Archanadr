@@ -5,8 +5,8 @@ import justLogo from "../assets/just.png";
 
 /**
  * Patient Experience And Reviews — Dr. Archana Singh, Psychiatrist, Patna
- * Same palette + type as the rest of the site:
- * navy #0F2544 | heading #424242 | accent #1D5D9B | eyebrow amber-400
+ * Palette matches logo:
+ * purple #4a1263 | heading #424242 | eyebrow/gold accent #c9a227
  */
 
 const FONT_IMPORT = `@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700;800&display=swap');`;
@@ -25,7 +25,7 @@ const PLATFORMS = [
   {
     text: "Verified Psychiatrist With Recommendations",
     logo: lybrateLogo,
-    // TODO: replace with Dr. Archana Singh's exact Lybrate profile URL once available
+    // TODO: Replace with Dr. Archana Singh's exact Lybrate profile URL once available
     url: "https://www.google.com/maps/search/Manah+Institute+of+Psychiatry+%26+Behavioral+Science+Patna",
   },
   {
@@ -41,7 +41,7 @@ function PlatformCard({ platform }) {
       href={platform.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex flex-col justify-between bg-white rounded-2xl border border-[#E7EBF1] p-4 sm:p-5 md:p-6 min-h-[150px] sm:min-h-[170px] md:h-[190px] transition-all duration-300 hover:border-[#1D5D9B]/40 hover:shadow-[0_14px_34px_rgba(15,37,68,0.10)] hover:-translate-y-1"
+      className="group flex flex-col justify-between bg-white rounded-2xl border border-[#E7EBF1] p-4 sm:p-5 md:p-6 min-h-[150px] sm:min-h-[170px] md:h-[190px] transition-all duration-300 hover:border-[#4a1263]/40 hover:shadow-[0_14px_34px_rgba(74,18,99,0.10)] hover:-translate-y-1"
     >
       <p className="font-['Inter'] text-[13px] sm:text-[14px] font-semibold text-[#16233B] leading-snug">
         {platform.text}
@@ -60,30 +60,29 @@ function PlatformCard({ platform }) {
 
 export default function PatientReviews() {
   return (
-    <section className="relative bg-[#eceff1] py-12 sm:py-16 md:py-20 px-5 sm:px-8 md:px-10 lg:px-16 overflow-hidden">
+    <section className="relative bg-[#F0EDF3] py-12 sm:py-16 md:py-20 px-5 sm:px-8 md:px-10 lg:px-16 overflow-hidden">
       <style>{FONT_IMPORT}</style>
 
-      <div className="pointer-events-none absolute -top-16 -left-16 w-80 h-80 bg-[#1D5D9B]/5 rounded-full blur-3xl" />
+      <div className="pointer-events-none absolute -top-16 -left-16 w-80 h-80 bg-[#4a1263]/5 rounded-full blur-3xl" />
 
-      <div className="pointer-events-none absolute bottom-0 -right-16 w-72 h-72 bg-amber-400/5 rounded-full blur-3xl" />
+      <div className="pointer-events-none absolute bottom-0 -right-16 w-72 h-72 bg-[#c9a227]/5 rounded-full blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto">
-
         {/* Eyebrow + heading */}
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10 md:mb-14">
           <div className="flex items-center justify-center gap-3 mb-3 sm:mb-4">
-            <span className="h-px w-8 bg-amber-400" />
+            <span className="h-px w-8 bg-[#c9a227]" />
 
-            <span className="font-['Inter'] text-xs font-bold tracking-[0.2em] text-amber-400 uppercase">
+            <span className="font-['Inter'] text-xs font-bold tracking-[0.2em] text-[#c9a227] uppercase">
               Verified Across Platforms
             </span>
 
-            <span className="h-px w-8 bg-amber-400" />
+            <span className="h-px w-8 bg-[#c9a227]" />
           </div>
 
           <h2 className="font-['Inter'] text-2xl sm:text-3xl md:text-[40px] font-extrabold text-[#424242] leading-tight">
             Patient{" "}
-            <span className="font-['Playfair_Display'] italic font-semibold text-[#1D5D9B]">
+            <span className="font-['Playfair_Display'] italic font-semibold text-[#4a1263]">
               Experience &amp; Reviews
             </span>
           </h2>
@@ -98,7 +97,6 @@ export default function PatientReviews() {
             />
           ))}
         </div>
-
       </div>
     </section>
   );

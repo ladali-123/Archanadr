@@ -6,8 +6,7 @@ import proceedImg from "../assets/proceed.png";
 
 /**
  * Our Approach & Procedure — Dr. Archana Singh, Psychiatrist, Patna
- * Same palette + type as the "Services We Provide" section:
- *  navy   #0F2544   |   heading  #424242   |   accent  #1D5D9B   |   gold  amber-400
+ * Palette matches logo: purple #4a1263 | heading #424242 | accent gold #c9a227
  */
 
 const FONT_IMPORT = `@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700;800&display=swap');`;
@@ -49,7 +48,7 @@ const STEPS = [
 
 function StepIcon() {
   return (
-    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-[#1D5D9B] flex items-center justify-center mt-0.5 shadow-sm">
+    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-[#4a1263] flex items-center justify-center mt-0.5 shadow-sm">
       <ArrowRight className="w-4 h-4 text-white" strokeWidth={2.5} />
     </span>
   );
@@ -62,22 +61,22 @@ export default function ApproachSection() {
     <section className="relative bg-white py-20 px-6 md:px-10 lg:px-16 overflow-hidden">
       <style>{FONT_IMPORT}</style>
 
-      <div className="pointer-events-none absolute -top-10 -left-10 w-72 h-72 bg-[#1D5D9B]/5 rounded-full blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 right-0 w-80 h-80 bg-amber-400/5 rounded-full blur-3xl" />
+      <div className="pointer-events-none absolute -top-10 -left-10 w-72 h-72 bg-[#4a1263]/5 rounded-full blur-3xl" />
+      <div className="pointer-events-none absolute bottom-0 right-0 w-80 h-80 bg-[#c9a227]/5 rounded-full blur-3xl" />
 
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative max-w-6xl mx-auto">
         {/* Header row: text (eyebrow + heading + intro) on left, image on right */}
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start mb-4">
           <div className="lg:flex-1">
             <div className="flex items-center gap-3 mb-4">
-              <span className="h-px w-8 bg-amber-400" />
-              <span className="font-['Inter'] text-xs font-bold tracking-[0.2em] text-amber-400 uppercase">
+              <span className="h-px w-8 bg-[#c9a227]" />
+              <span className="font-['Inter'] text-xs font-bold tracking-[0.2em] text-[#c9a227] uppercase">
                 How We Help
               </span>
             </div>
             <h2 className="font-['Inter'] text-3xl md:text-[40px] font-extrabold text-[#424242] leading-tight mb-5">
               Our Approach{" "}
-              <span className="font-['Playfair_Display'] italic font-semibold text-[#1D5D9B]">
+              <span className="font-['Playfair_Display'] italic font-semibold text-[#4a1263]">
                 &amp; Procedure
               </span>
             </h2>
@@ -86,7 +85,7 @@ export default function ApproachSection() {
                 Dr. Archana Singh
               </span>
               , a trusted{" "}
-              <span className="text-[#1D5D9B] font-medium ">
+              <span className="text-[#4a1263] font-medium ">
                 psychiatrist in Patna
               </span>
               , follows a structured and compassionate approach designed to
@@ -98,33 +97,33 @@ export default function ApproachSection() {
           </div>
 
           <div className="relative w-full lg:w-[380px] flex-shrink-0">
-            <div className="relative rounded-2xl overflow-hidden shadow-[0_15px_35px_rgba(15,37,68,0.14)] border border-[#E7EBF1]">
+            <div className="relative rounded-2xl overflow-hidden shadow-[0_15px_35px_rgba(74,18,99,0.14)] border border-[#E7EBF1]">
               {!imgError ? (
                 <img
                   src={proceedImg}
                   alt="Dr. Archana Singh consulting a patient"
                   onError={() => setImgError(true)}
-                  className="w-full h-[270px] object-cover"   // ✅ height 240px → 270px (हल्का सा बढ़ा)
+                  className="w-full h-[270px] object-cover"   // ✅ height 240px → 270px (हल्का सा बढ़ा)
                 />
               ) : (
-                <div className="w-full h-[270px] bg-gradient-to-br from-[#0F2544] to-[#1D5D9B] 
+                <div className="w-full h-[270px] bg-gradient-to-br from-[#4a1263] to-[#8e2f8f] 
                 flex items-center justify-center">
                   <span className="font-['Inter'] text-white/70 text-xs px-4 text-center">
                     Add your image at src/assets/proceed.png
                   </span>
                 </div>
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0F2544]/35 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#2b0a40]/35 via-transparent to-transparent" />
             </div>
 
             {/* small stat chip */}
             <div className="flex items-center gap-2.5 bg-white rounded-xl shadow-lg border border-[#E7EBF1] px-4 py-2.5 -mt-6 ml-5 relative z-10 w-fit">
-              <div className="w-7 h-7 rounded-full bg-[#1D5D9B] flex items-center justify-center flex-shrink-0">
+              <div className="w-7 h-7 rounded-full bg-[#4a1263] flex items-center justify-center flex-shrink-0">
                 <ArrowRight className="w-3.5 h-3.5 text-white" />
               </div>
               <div>
                 <p className="font-['Inter'] text-[14px] font-extrabold text-[#16233B] leading-none">
-                  5+ Years
+                  15+ Years
                 </p>
                 <p className="font-['Inter'] text-[10.5px] text-[#5B6B84] mt-0.5">
                   Clinical Experience

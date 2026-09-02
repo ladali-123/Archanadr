@@ -44,12 +44,12 @@ function StatItem({ stat, start }) {
       "
     >
       <div className="flex items-start">
-        <span className="text-4xl font-semibold leading-none tracking-tight text-amber-400 sm:text-5xl">
+        <span className="text-4xl font-semibold leading-none tracking-tight text-[#f0d876] sm:text-5xl">
           {count.toLocaleString()}
           {stat.suffixText}
         </span>
         {stat.plus && (
-          <span className="ml-1 mt-1 text-lg font-medium text-amber-400/90 sm:text-xl">
+          <span className="ml-1 mt-1 text-lg font-medium text-[#f0d876]/90 sm:text-xl">
             +
           </span>
         )}
@@ -90,16 +90,16 @@ export default function StatsBanner() {
     >
       <div
         className="
-          relative mx-auto max-w-7xl overflow-hidden rounded-[28px]
-          bg-gradient-to-br from-[#0a5f8c] via-[#0b6a9a] to-[#0d4f73]
-          px-6 py-10 shadow-xl shadow-sky-900/20
+          relative mx-auto max-w-6xl overflow-hidden rounded-[28px]
+          bg-gradient-to-br from-[#5a1a7a] via-[#6b2591] to-[#4a1263]
+          px-6 py-10 shadow-xl shadow-[#4a1263]/25
           sm:px-10 sm:py-12 lg:px-16 lg:py-14
         "
       >
         <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full
-         bg-white/5 blur-3xl" />
+         bg-white/8 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-24 -left-16 h-56 w-56 rounded-full
-         bg-amber-300/10 blur-3xl" />
+         bg-[#c9a227]/15 blur-3xl" />
 
         <div
           className="

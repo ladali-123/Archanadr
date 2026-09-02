@@ -10,18 +10,19 @@ export default function ManahHealthAbout() {
 
       {/* ---- Subtle bubbles background ---- */}
       <div className="pointer-events-none absolute inset-0">
-        <span className="absolute -top-10 left-[6%] h-40 w-40 rounded-full bg-blue-100 blur-2xl" />
-        <span className="absolute top-1/3 left-[45%] h-24 w-24 rounded-full bg-blue-50 blur-xl" />
-        <span className="absolute bottom-6 left-[18%] h-16 w-16 rounded-full bg-blue-50 blur-lg" />
-        <span className="absolute -bottom-16 right-[10%] h-52 w-52 rounded-full bg-blue-50 blur-2xl" />
+        <span className="absolute -top-10 left-[6%] h-40 w-40 rounded-full bg-purple-100 blur-2xl" />
+        <span className="absolute top-1/3 left-[45%] h-24 w-24 rounded-full bg-amber-50 blur-xl" />
+        <span className="absolute bottom-6 left-[18%] h-16 w-16 rounded-full bg-purple-50 blur-lg" />
+        <span className="absolute -bottom-16 right-[10%] h-52 w-52 rounded-full bg-amber-50 blur-2xl" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl">
+      <div className="relative mx-auto max-w-6xl">
         {/* ---- Top: Centered page heading ---- */}
         <div className="mx-auto mb-8 max-w-3xl text-center md:mb-12">
-          <h1 className="font-['Inter'] text-3xl font-extrabold leading-tight text-[#424242] sm:text-4xl md:text-5xl">
+          <h1 className="font-['Inter'] text-3xl font-extrabold leading-tight text-[#424242] sm:text-4xl 
+          md:text-4xl">
             Psychiatrist in{" "}
-            <span className="font-['Playfair_Display'] italic font-semibold text-[#1D5D9B]">
+            <span className="font-['Playfair_Display'] italic font-semibold text-[#4a1263]">
               Patna, India
             </span>
           </h1>
@@ -42,8 +43,8 @@ export default function ManahHealthAbout() {
           <div className="order-1 flex w-full flex-col items-center text-center md:order-2 md:w-1/2 
           md:items-start md:text-left">
             <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold tracking-widest
-            text-[#E8A33D]">
-              <span className="h-[2px] w-6 bg-[#E8A33D]" />
+            text-[#c9a227]">
+              <span className="h-[2px] w-6 bg-[#c9a227]" />
               ABOUT US
             </span>
 
@@ -67,7 +68,7 @@ export default function ManahHealthAbout() {
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4 md:justify-start">
               <Link
                 to="/contact"
-                className="rounded-full bg-blue-500 px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-900/10 transition hover:bg-blue-700"
+                className="rounded-full bg-gradient-to-r from-[#4a1263] via-[#8e2f8f] to-[#c9a227] px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-[#4a1263]/30 transition hover:shadow-xl hover:shadow-[#4a1263]/40 hover:scale-[1.03] active:scale-[0.97]"
               >
                 Contact Us
               </Link>

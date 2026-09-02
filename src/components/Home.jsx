@@ -40,33 +40,35 @@ export default function PsychiatristHero() {
       `}</style>
 
       {/* पूरा सेक्शन – बैकग्राउंड इमेज के साथ */}
-      <section className="relative grid lg:grid-cols-[1.15fr_1fr] min-h-[560px] lg:min-h-screen overflow-hidden">
+      <section className="relative grid lg:grid-cols-[1.15fr_1fr] min-h-[560px] lg:min-h-screen 
+      overflow-hidden">
 
         {/* बैकग्राउंड इमेज */}
         <img
           src={mame}
           alt="Background"
-          className="absolute inset-0 w-full h-full object-cover object-[78%_18%] lg:object-center blur-[2px] lg:blur-none"
+          className="absolute inset-0 w-full h-full object-cover object-[78%_18%] lg:object-center 
+          blur-[2px] lg:blur-none"
         />
 
-        {/* डार्क ओवरले */}
-        <div className="absolute inset-0" />
+        {/* डार्क ओवरले – ताकि सफ़ेद/ऑरेंज टेक्स्ट साफ़ दिखे */}
+        <div className="absolute inset-0 " />
 
         {/* ---------------- LEFT: content ---------------- */}
-        <div className="relative z-10 flex flex-col justify-center px-6 sm:px-10 lg:px-28 py-16 lg:py-20">
+        <div className="relative z-10 flex flex-col justify-center px-6 sm:px-10 lg:px-34 py-16 lg:py-20">
 
           {/* headline */}
-          <h1 className="font-display text-[#F7F2E9] text-4xl sm:text-5xl lg:text-[3.4rem] leading-[1.05] font-semibold mb-6">
+          <h1 className="font-display text-white text-4xl sm:text-5xl lg:text-[3.4rem] leading-[1.05] font-semibold mb-6 drop-shadow-md">
             Best{" "}
-            <span className="text-[#E7A23A] italic">
+            <span className="text-[#f5a623] italic">
               Psychiatrist
             </span>
             <br />
             in Patna
           </h1>
 
-          {/* simple subheading */}
-          <p className="text-[#D9E6E2] text-base sm:text-base font-light leading-relaxed max-w-md mb-10">
+          {/* subheading */}
+          <p className="text-white/90 text-base sm:text-base font-medium leading-relaxed max-w-md mb-10 drop-shadow-sm">
             Compassionate, confidential mental health care in a calm and
             supportive space — helping you feel heard, understood, and on
             the path to healing.
@@ -76,7 +78,7 @@ export default function PsychiatristHero() {
           <div className="flex flex-wrap gap-4 mb-10">
 
             <a
-              href="https://wa.me/91XXXXXXXXXX"
+              href="https://wa.me/917543976796"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1FB958] transition-colors text-white font-semibold px-6 py-3 rounded-full shadow-lg shadow-black/20"
@@ -87,7 +89,7 @@ export default function PsychiatristHero() {
 
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 border border-[#E7A23A] text-[#E7A23A] hover:bg-[#E7A23A] hover:text-[#0E2731] transition-colors font-semibold px-6 py-3 rounded-full"
+              className="inline-flex items-center gap-2 border border-[#f5a623] text-[#f5a623] hover:bg-[#f5a623] hover:text-white transition-colors font-semibold px-6 py-3 rounded-full"
             >
               <Phone className="w-5 h-5" />
               Book Appointment
@@ -96,7 +98,7 @@ export default function PsychiatristHero() {
           </div>
 
           {/* trust row */}
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-[#B9CCC6] text-sm">
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-white/90 text-sm font-medium">
 
             <span className="flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4" />
@@ -113,11 +115,7 @@ export default function PsychiatristHero() {
 
         {/* ---------------- RIGHT: empty panel ---------------- */}
         <div className="relative z-10 hidden lg:flex flex-col justify-end px-6 py-10 lg:py-20">
-
-          {/* floating quote card */}
-          <div className="bg-black/40 backdrop-blur-md border border-white/10 rounded-2xl px-5 py-4 max-w-xs ml-auto">
-          </div>
-
+          {/* (optional floating card – यहाँ खाली रखा गया है) */}
         </div>
 
       </section>

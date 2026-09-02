@@ -1,8 +1,7 @@
-import  { useState } from "react";
+import { Link } from "react-router-dom";
 import { ArrowRight, Calendar, Clock } from "lucide-react";
-
-
- 
+import anxietyImg from "../assets/anxiety.jpg";
+import childImg from "../assets/child.jpg";
 
 const FONT_IMPORT = `@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700;800&display=swap');`;
 
@@ -13,16 +12,20 @@ const BLOG_POSTS = [
     title: "Understanding Anxiety: Signs, Causes & When to Seek Help",
     excerpt:
       "A closer look at how anxiety shows up in daily life and the treatment options that actually help.",
-    date: "Coming Soon",
+    date: "Sep 2026",
     readTime: "5 min read",
+    img: anxietyImg,
+    link: "/blog/understanding-anxiety",
   },
   {
     category: "Parenting",
     title: "How to Talk to Your Child About Their Mental Health",
     excerpt:
       "Practical, age-appropriate ways parents can open the conversation without causing worry.",
-    date: "Coming Soon",
+    date: "Sep 2026",
     readTime: "4 min read",
+    img: childImg,
+    link: "/blog/talk-to-child-about-mental-health",
   },
   {
     category: "De-Addiction",
@@ -31,21 +34,24 @@ const BLOG_POSTS = [
       "What a structured de-addiction journey looks like, from first consultation to long-term recovery.",
     date: "Coming Soon",
     readTime: "6 min read",
+    img: "https://i.pinimg.com/1200x/1b/40/bf/1b40bf5b364d9a20d0f095b07903d0a8.jpg",
+    link: null,
   },
 ];
 
 function BlogCard({ post }) {
-  return (
-    <div className="group bg-white rounded-2xl overflow-hidden border border-[#E7EBF1] 
-    shadow-[0_2px_10px_rgba(15,37,68,0.06)] hover:shadow-[0_18px_40px_rgba(15,37,68,0.14)] 
-    transition-all duration-500 hover:-translate-y-1.5">
-      {/* image placeholder — swap for a real thumbnail once posts exist */}
-      <div className="relative h-48 bg-gradient-to-br from-[#0F2544] to-[#1D5D9B] 
-      flex items-center justify-center overflow-hidden">
-        <span className="font-['Playfair_Display'] italic text-white/25 text-4xl select-none">
-          Aa
-        </span>
-        <span className="absolute top-4 left-4 bg-amber-400 text-[#16233B] text-[11px]
+  const isPublished = Boolean(post.link);
+
+  const cardInner = (
+    <>
+      <div className="relative h-56 overflow-hidden">
+        <img
+          src={post.img}
+          alt={post.title}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#2b0a40]/70 via-[#2b0a40]/0 to-transparent" />
+        <span className="absolute top-4 left-4 bg-white text-[#4a1263] text-[11px]
          font-bold px-3 py-1 rounded-full font-['Inter']">
           {post.category}
         </span>
@@ -70,47 +76,58 @@ function BlogCard({ post }) {
           {post.excerpt}
         </p>
 
-        <span className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#1D5D9B] opacity-60 cursor-not-allowed">
-          Read More
-          <ArrowRight className="w-3.5 h-3.5" />
-        </span>
+        {isPublished ? (
+          <span className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#4a1263]">
+            Read More
+            <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+          </span>
+        ) : (
+          <span className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#4a1263] opacity-60 cursor-not-allowed">
+            Read More
+            <ArrowRight className="w-3.5 h-3.5" />
+          </span>
+        )}
       </div>
-    </div>
+    </>
   );
+
+  const cardClasses =
+    "group bg-white rounded-2xl overflow-hidden border border-[#E7EBF1] " +
+    "shadow-[0_2px_10px_rgba(74,18,99,0.06)] hover:shadow-[0_18px_40px_rgba(74,18,99,0.14)] " +
+    "transition-all duration-500 hover:-translate-y-1.5";
+
+  if (isPublished) {
+    return (
+      <Link to={post.link} className={`block ${cardClasses}`}>
+        {cardInner}
+      </Link>
+    );
+  }
+
+  return <div className={cardClasses}>{cardInner}</div>;
 }
 
 export default function BlogSection() {
-  const [subscribed, setSubscribed] = useState(false);
-  const [email, setEmail] = useState("");
-
-  const handleNotify = (e) => {
-    e.preventDefault();
-    if (!email) return;
-    // Wire this up to your mailing list / backend later
-    console.log("Notify me:", email);
-    setSubscribed(true);
-  };
-
   return (
-    <section className="relative bg-[#F6F8FA] py-16 px-6 md:px-10 lg:px-16 overflow-hidden">
+    <section className="relative bg-[#F8F6FA] py-16 px-6 md:px-10 lg:px-20 overflow-hidden">
       <style>{FONT_IMPORT}</style>
 
-      <div className="pointer-events-none absolute -top-16 -right-16 w-80 h-80 bg-[#1D5D9B]/5 rounded-full blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 -left-16 w-72 h-72 bg-amber-400/5 rounded-full blur-3xl" />
+      <div className="pointer-events-none absolute -top-16 -right-16 w-80 h-80 bg-[#4a1263]/5 rounded-full blur-3xl" />
+      <div className="pointer-events-none absolute bottom-0 -left-16 w-72 h-72 bg-[#4a1263]/5 rounded-full blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto">
         {/* Eyebrow + heading */}
         <div className="text-center max-w-2xl mx-auto mb-14">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <span className="h-px w-8 bg-amber-400" />
-            <span className="font-['Inter'] text-xs font-bold tracking-[0.2em] text-amber-400 uppercase">
+            <span className="h-px w-8 bg-[#4a1263]" />
+            <span className="font-['Inter'] text-xs font-bold tracking-[0.2em] text-[#4a1263] uppercase">
               From Our Blog
             </span>
-            <span className="h-px w-8 bg-amber-400" />
+            <span className="h-px w-8 bg-[#4a1263]" />
           </div>
           <h2 className="font-['Inter'] text-3xl md:text-[40px] font-extrabold text-[#424242] leading-tight">
             Insights{" "}
-            <span className="font-['Playfair_Display'] italic font-semibold text-[#1D5D9B]">
+            <span className="font-['Playfair_Display'] italic font-semibold text-[#4a1263]">
               &amp; Articles
             </span>
           </h2>
@@ -121,49 +138,10 @@ export default function BlogSection() {
         </div>
 
         {/* Blog cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
           {BLOG_POSTS.map((post) => (
             <BlogCard key={post.title} post={post} />
           ))}
-        </div>
-
-        {/* Notify-me strip instead of a "View All" button since there's nothing to view yet */}
-        <div className="rounded-2xl bg-gradient-to-r from-[#0a5f8c] via-[#0b6a9a] to-[#0d4f73] px-8 py-9 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
-          <div className="text-center md:text-left">
-            <h3 className="font-['Inter'] text-white text-xl md:text-2xl font-bold mb-1.5">
-              Our blog is launching soon
-            </h3>
-            <p className="font-['Inter'] text-[#C4D0E0] text-sm">
-              Leave your email and we'll notify you the moment new articles
-              go live.
-            </p>
-          </div>
-
-          {subscribed ? (
-            <p className="font-['Inter'] text-white font-semibold text-sm bg-white/10 px-5 py-3 rounded-full">
-              🎉 You're on the list — thank you!
-            </p>
-          ) : (
-            <form
-              onSubmit={handleNotify}
-              className="flex w-full md:w-auto items-center gap-2 bg-white rounded-full p-1.5 shadow-md"
-            >
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your email address"
-                className="flex-1 md:w-56 font-['Inter'] text-[13.5px] text-[#16233B] placeholder:text-[#9AA6B5] px-4 py-2 outline-none bg-transparent"
-              />
-              <button
-                type="submit"
-                className="flex-shrink-0 bg-amber-400 hover:bg-amber-500 text-[#16233B] font-['Inter'] font-semibold text-[13px] px-5 py-2.5 rounded-full transition-colors"
-              >
-                Notify Me
-              </button>
-            </form>
-          )}
         </div>
       </div>
     </section>
