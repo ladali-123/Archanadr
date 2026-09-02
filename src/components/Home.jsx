@@ -55,7 +55,7 @@ export default function PsychiatristHero() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent lg:bg-none" />
 
         {/* ---------------- LEFT: content ---------------- */}
-        <div className="relative z-10 flex flex-col justify-center px-6 sm:px-10 lg:px-34 py-16 lg:py-20">
+        <div className="relative z-10 flex flex-col justify-between lg:justify-center px-6 sm:px-10 lg:px-34 pt-10 pb-12 lg:py-20">
 
           {/* headline */}
           <h1 className="font-display text-white text-4xl sm:text-5xl lg:text-[3.4rem] leading-[1.05] font-semibold mb-6 [text-shadow:0_2px_12px_rgba(0,0,0,0.85)] lg:[text-shadow:none] lg:drop-shadow-md">
