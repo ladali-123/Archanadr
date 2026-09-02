@@ -67,21 +67,21 @@ export default function PsychiatristHero() {
             in Patna
           </h1>
 
-          {/* subheading */}
-          <p className="text-white/90 text-base sm:text-base font-medium leading-relaxed max-w-md mb-10 drop-shadow-sm">
+          {/* subheading — mobile pe hidden, desktop pe visible */}
+          <p className="hidden lg:block text-white/90 text-base sm:text-base font-medium leading-relaxed max-w-md mb-10 drop-shadow-sm">
             Compassionate, confidential mental health care in a calm and
             supportive space — helping you feel heard, understood, and on
             the path to healing.
           </p>
 
-          {/* CTAs */}
-          <div className="flex flex-wrap gap-4 mb-10">
+          {/* CTAs — mobile pe stacked with extra gap, desktop pe side by side */}
+          <div className="flex flex-col lg:flex-row lg:flex-wrap gap-6 lg:gap-4 mb-10 mt-8 lg:mt-0">
 
             <a
               href="https://wa.me/917543976796"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1FB958] transition-colors text-white font-semibold px-6 py-3 rounded-full shadow-lg shadow-black/20"
+              className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1FB958] transition-colors text-white font-semibold px-6 py-3 rounded-full shadow-lg shadow-black/20 w-full lg:w-auto"
             >
               <MessageCircle className="w-5 h-5" />
               WhatsApp Now
@@ -89,7 +89,7 @@ export default function PsychiatristHero() {
 
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 border border-[#f5a623] text-[#f5a623] hover:bg-[#f5a623] hover:text-white transition-colors font-semibold px-6 py-3 rounded-full"
+              className="inline-flex items-center justify-center gap-2 border border-[#f5a623] text-[#f5a623] hover:bg-[#f5a623] hover:text-white transition-colors font-semibold px-6 py-3 rounded-full w-full lg:w-auto"
             >
               <Phone className="w-5 h-5" />
               Book Appointment
@@ -97,8 +97,8 @@ export default function PsychiatristHero() {
 
           </div>
 
-          {/* trust row */}
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-white/90 text-sm font-medium">
+          {/* trust row — mobile pe hidden, desktop pe visible */}
+          <div className="hidden lg:flex flex-wrap gap-x-6 gap-y-2 text-white/90 text-sm font-medium">
 
             <span className="flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4" />
