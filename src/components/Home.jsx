@@ -48,17 +48,17 @@ export default function PsychiatristHero() {
           src={mame}
           alt="Background"
           className="absolute inset-0 w-full h-full object-cover object-[78%_18%] lg:object-center 
-          blur-[2px] lg:blur-none"
+          blur-[1px] lg:blur-none"
         />
 
         {/* डार्क ओवरले – ताकि सफ़ेद/ऑरेंज टेक्स्ट साफ़ दिखे */}
-        <div className="absolute inset-0 " />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent lg:bg-none" />
 
         {/* ---------------- LEFT: content ---------------- */}
         <div className="relative z-10 flex flex-col justify-center px-6 sm:px-10 lg:px-34 py-16 lg:py-20">
 
           {/* headline */}
-          <h1 className="font-display text-white text-4xl sm:text-5xl lg:text-[3.4rem] leading-[1.05] font-semibold mb-6 drop-shadow-md">
+          <h1 className="font-display text-white text-4xl sm:text-5xl lg:text-[3.4rem] leading-[1.05] font-semibold mb-6 [text-shadow:0_2px_12px_rgba(0,0,0,0.85)] lg:[text-shadow:none] lg:drop-shadow-md">
             Best{" "}
             <span className="text-[#f5a623] italic">
               Psychiatrist
@@ -81,7 +81,7 @@ export default function PsychiatristHero() {
               href="https://wa.me/917543976796"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1FB958] transition-colors text-white font-semibold px-6 py-3 rounded-full shadow-lg shadow-black/20 w-full lg:w-auto"
+              className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1FB958] transition-colors text-white font-semibold px-6 py-3 rounded-full shadow-lg shadow-black/20 w-fit"
             >
               <MessageCircle className="w-5 h-5" />
               WhatsApp Now
@@ -89,7 +89,7 @@ export default function PsychiatristHero() {
 
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center gap-2 border border-[#f5a623] text-[#f5a623] hover:bg-[#f5a623] hover:text-white transition-colors font-semibold px-6 py-3 rounded-full w-full lg:w-auto"
+              className="inline-flex items-center justify-center gap-2 border border-[#f5a623] text-[#f5a623] hover:bg-[#f5a623] hover:text-white transition-colors font-semibold px-6 py-3 rounded-full w-fit"
             >
               <Phone className="w-5 h-5" />
               Book Appointment
